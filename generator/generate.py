@@ -42,7 +42,7 @@ import scipy.io.wavfile as wav
 
 transpose = -4
 timer_resolution_ms = 50
-sampling_rate=3125
+sampling_rate=6250
 rttl='Super Mario:d=4,o=5,b=100:16e6,16e6,32p,8e6,16c6,8e6,8g6,8p,8g,8p,8c6,16p,8g,16p,8e,16p,8a,8b,16a#,8a,16g.,16e6,16g6,8a6,16f6,8g6,8e6,16c6,16d6,8b,16p,8c6,16p,8g,16p,8e,16p,8a,8b,16a#,8a,16g.,16e6,16g6,8a6,16f6,8g6,8e6,16c6,16d6,8b,8p,16g6,16f#6,16f6,16d#6,16p,16e6,16p,16g#,16a,16c6,16p,16a,16c6,16d6,8p,16g6,16f#6,16f6,16d#6,16p,16e6,16p,16c7,16p,16c7,16c7,p,16g6,16f#6,16f6,16d#6,16p,16e6,16p,16g#,16a,16c6,16p,16a,16c6,16d6,8p,16d#6,8p,16d6,8p,16c6,4p'
 
 data=np.zeros(0)
@@ -51,7 +51,7 @@ def rttl_verilog(index, divider, ticks, comment):
 	if ticks>15:
 		ticks=15
 
-	print('{0:2}: db_entry = 11\'h{1:03x};{2}'.format(index, (divider<<4)|ticks, comment))
+	print('{0:2}: db_entry = 12\'h{1:03x};{2}'.format(index, (divider<<4)|ticks, comment))
 
 
 def rttl_append_note(freq, duration_ms):

@@ -4,13 +4,13 @@
 
 ## Overview ##
 [This Verilog chip design](https://meriac.github.io/tt03-play-tune/) is
-made for the [TinyTapout tt02 shuttle](https://tinytapeout.com/).
+made for the [TinyTapout tt03 shuttle](https://tinytapeout.com/).
 It [will play](src/player.v#L38) the [Super Mario Tune](src/tune.v#L42-L45)
 over a Piezo Speaker connected across io_out[1:0]. The speaker is driven
 in differential PWM mode to increase its output power.
 
 ### Listen To The Generated Sound ###
-Listen to the [Verilog Simulation PWM output for 3125Hz clock frequency](https://github.com/meriac/tt03-play-tune/releases/download/v0.6/tune-modulation-verilog-simulated.wav) here.
+Listen to the [Verilog Simulation PWM output for 62505Hz clock frequency](https://github.com/meriac/tt03-play-tune/releases/download/v0.7/tune-modulation-verilog-simulated.wav) here.
 
 ### Chip Design of the Super Mario Tune player ###
 ![Chip Design of the Super Mario Tune player](img/chip-design.png)
@@ -29,7 +29,7 @@ Using [GTKWave](https://gtkwave.sourceforge.net/) for visualization of Simulatio
 ![Zooming into the Waveform](img/waveform-detail.png)
 
 ## How To Test ##
-Provide 3125Hz clock on io_in[0], briefly hit reset io_in[1] (Low, High, Low)
+Provide 6250Hz clock on io_in[0], briefly hit reset io_in[1] (Low, High, Low)
 and io_out[1:0] will play a differential sound wave over piezo speaker
 (Super Mario Tune).
 
