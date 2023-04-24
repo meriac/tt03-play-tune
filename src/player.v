@@ -42,11 +42,11 @@ module meriac_tt03_play_tune #( parameter MAX_COUNT = 100 ) (
     
     wire clk = io_in[0];
     wire reset = io_in[1];
-    wire [10:0] db_entry;
+    wire [11:0] db_entry;
 
     reg [6:0] note_address;
-    reg [10:0] ticks;
-    reg [6:0] freq, counter;
+    reg [11:0] ticks;
+    reg [7:0] freq, counter;
     reg speaker;
 
     assign io_out[0] = speaker;
@@ -91,12 +91,12 @@ module meriac_tt03_play_tune #( parameter MAX_COUNT = 100 ) (
                 ticks <= ticks - 1'b1;
             end else begin
                 // update per-note delay
-                ticks[10:7] <= db_entry[3:0];
-                ticks[6:0] <= 0;
+                ticks[11:8] <= db_entry[3:0];
+                ticks[7:0] <= 0;
 
                 // reset tone generator
-                counter <= db_entry[10:4];
-                freq <= db_entry[10:4];
+                counter <= db_entry[11:4];
+                freq <= db_entry[11:4];
             end
 
         end
